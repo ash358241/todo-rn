@@ -13,6 +13,12 @@ export default function App() {
     setTaskItem([...taskItem, task]);
     setTask('');
   }
+
+  const completeTask = (index) => {
+    let completeItem = [...taskItem];
+    completeItem.splice(index, 1);
+    setTaskItem(completeItem);
+  }
   return (
     <View style={styles.container}>
       <View style={styles.taskWrapper}>
@@ -21,7 +27,9 @@ export default function App() {
       <View style={styles.items}>
         <FlatList
           data={taskItem}
-          renderItem={({ item, index }) => { return <Task key={index.toString()} text={item} /> }}
+          renderItem={({ item, index }) => { return <TouchableOpacity key={index.toString()} onPress={() => completeTask(index)}>
+            <Task text={item} />
+          </TouchableOpacity> }}
         />
       </View>
       <KeyboardAvoidingView
