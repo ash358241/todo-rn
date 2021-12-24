@@ -29,7 +29,7 @@ export default function App() {
           data={taskItem}
           renderItem={({ item, index }) => { return <TouchableOpacity key={index.toString()} onPress={() => completeTask(index)}>
             <Task text={item} />
-          </TouchableOpacity> }}
+          </TouchableOpacity> }} 
         />
       </View>
       <KeyboardAvoidingView
